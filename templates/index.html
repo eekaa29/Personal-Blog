@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Personal</title>
+    <link  rel="stylesheet" href="../static/css/styles.css"/>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar_img">
+            <img src="../static/logo2.jpg" alt="Logo EM">Blog Personal
+        </div>
+        <ul class="navbar_list">
+            <li class="navbar_list_item">
+                <a class="navbar_list_link" href="#">
+                    Recientes
+                </a>
+            </li>
+            <li class="navbar_list_item">
+                <a class="navbar_list_link" href="#">
+                    Calendario
+                </a>
+            </li>
+        </ul>
+
+    </header>
+
+    <main class="main">
+        <section class="section1">
+            <h2>Nueva entrada en el diario</h2>
+            <form class="form" method="POST">
+                <p class="form_input">
+                    <label class="form_label" for="tit">Titulo:</label>
+                    <input type="text" class="input_titulo" id="tit" name="title">
+                </p>
+                <p class="form_input">
+                    <label class="form_label" for="entrada">Contenido:</label>
+                    <input type="textarea" class="input_entrada" id="entrada" name="entry"> 
+                </p>
+                <button type="submit" class="form_button">AGREGAR</button>
+
+            </form>
+        </section>
+        <section class="section2">
+            <h2>Entradas recientes:</h2>
+            <article>
+                <div class="div_entradas">
+                    <h3 class="entry_title">Rutina de empujes en el gimnasio + Entreno con el equipo</h3>
+                    <time datetime="19-10-2024" class="entry_date">* 19-10-2024</time>
+                </div>
+                <p class="p_entradas">Hoy fui al gimnasio a hacer una rutina de empujes, hice el tratamiento de sauna + baño de vapor, estudié, entrené 
+                    por la tarde con el equipo y volví a casapara cenar
+                </p>
+            </article>
+            {% for entrada in entradas %}
+            <article>
+                <div class="div_entradas">
+                    <h3 class="entry_title">
+                        {{ entrada.titulo }}
+                    </h3>
+                    <time datetime= {{entrada.fecha}} class="entry_date">*
+                        {{ entrada.fecha }}
+                    </time>
+                </div>
+                <p class="p_entradas">
+                    {{ entrada.contenido }}
+                </p>
+            </article>
+            {% endfor %}
+
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer_content">
+            <section class="section_left">
+                <a class="footer_content" href="#">Creado por Ekaitz Martin</a>
+                <a class="footer_content" href="#">Mira mis otros proyectos</a>
+            </section>
+            <section class="section_right">
+                <div class="div_column">
+                    <a class="footer_content" href="#">Recientes</a>
+                    <a class="footer_content" href="#">Calendario</a>
+                </div>
+                <div class="div_column">
+                    <a class="footer_content" href="#">Acerca de</a>
+                    <a class="footer_content" href="#">Como fue hecho esto</a>
+                </div>
+
+            </section>
+            
+        </div>
+    </footer>
+
+    
+</body>
+</html>
